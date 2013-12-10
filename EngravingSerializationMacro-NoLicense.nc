@@ -1,52 +1,17 @@
 O1000
+ #130 = -.1 (Depth from start position)
+ #140 = 0   (Counter)
+ #150 = 80  (Character Spacing [Percentage])
 
-T1
-M6
-(Move to start position)
-G17 G90 G0 X.5 Y-.1 S5000 M3
-G43 H1 Z.1
-F50.
+ T1
+ M6
+ (Move to start position)
 
-#130 = -.1 (Depth from start position)
-#140 = 0   (Counter)
-#150 = 80  (Character Spacing [Percentage])
+ G17 G90 G0 X0. Y[#501] S5000 M3
+ G43 H1 Z.1
+ F50.
 
-G65 P9100 A1
-G65 P9100 A2
-G65 P9100 A3
-G65 P9100 A4
-G65 P9100 A5
-G65 P9100 A6
-G65 P9100 A7
-G65 P9100 A8
-G65 P9100 A9
-G65 P9100 A10
-G65 P9100 A11
-G65 P9100 A12
-G65 P9100 A13
-G65 P9100 A14
-G65 P9100 A15
-G65 P9100 A16
-G65 P9100 A17
-G65 P9100 A18
-G65 P9100 A19
-G65 P9100 A20
-G65 P9100 A21
-G65 P9100 A22
-G65 P9100 A23
-G65 P9100 A24
-G65 P9100 A25
-G65 P9100 A26
-G65 P9100 D1
-G65 P9100 D2
-G65 P9100 D3
-G65 P9100 D4
-G65 P9100 D5
-G65 P9100 D6
-G65 P9100 D7
-G65 P9100 D8
-G65 P9100 D9
-G65 P9100 D10
+ G65 P9100 S3 U20
 
 M30
 
@@ -97,10 +62,11 @@ O9400 (Series);
 
  (This loop uses arithmetic to find the digit we currently need to be engraving)
  WHILE[#19GT0]DO1
-  
   (Extract digit)
-  N2 #598 = FIX[#597 MOD 10]
-  
+  (OKAY, SO I CAN NOT FIGURE OUT WHY BUT FOR SOME REASON ANY VALUE OVER .5 BUT UNDER 1.0 MOD 10 IS ROUNDED TO THE NEXT HIGHEST INTEGER)
+  (THEREFORE I NEEDED TO MOVE EVERYTHING UP A DIGIT, MOD IT, AND FLOOR IT)
+  N2 #598 = FIX[[[#597*10] MOD 100]/10]
+
   (Move to next digit)
   #597 = #597 / 10
 
@@ -110,7 +76,7 @@ O9400 (Series);
 
   (Engrave the number)
   IF[#598EQ0]THEN#598=10
-  M98 P[#598+9100]
+  M98 P[ABS[#598]+9100]
   (decrement number of letters to engrave)
   #19= #19 - 1
  END1
@@ -304,7 +270,7 @@ M99;
 
 
 O9212 (Letter L);
- G90 X.025 Y0.
+ G90 X.025 Y-.0438
  G91 G1 Z[-[ABS[#130]]]
  G90 Y-.1 
  X.075
