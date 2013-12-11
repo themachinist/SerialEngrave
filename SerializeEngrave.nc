@@ -1,20 +1,3 @@
-O1000
- #130 = -.1 (Depth from start position)
- #140 = 0   (Counter)
- #150 = 80  (Character Spacing [Percentage])
-
- T1
- M6
- (Move to start position)
-
- G17 G90 G0 X0. Y[#501] S5000 M3
- G43 H1 Z.1
- F50.
-
- G65 P9100 S3 U20
-
-M30
-
 (Engraving.nc)
 O9100
  (Setup Work Coordinate)
@@ -63,15 +46,15 @@ O9400 (Series);
  (This loop uses arithmetic to find the digit we currently need to be engraving)
  WHILE[#19GT0]DO1
   (Extract digit)
-  (OKAY, SO I CAN NOT FIGURE OUT WHY BUT FOR SOME REASON ANY VALUE OVER .5 BUT UNDER 1.0 MOD 10 IS ROUNDED TO THE NEXT HIGHEST INTEGER)
-  (THEREFORE I NEEDED TO MOVE EVERYTHING UP A DIGIT, MOD IT, AND FLOOR IT)
+  (For some reason n mod 10 is rounded)
+  (so i moved everything up a digit, math'd it, and moved it back down)
   N2 #598 = FIX[[[#597*10] MOD 100]/10]
 
   (Move to next digit)
   #597 = #597 / 10
 
   (Move to start position:)
-  G52 X[[#140+[#19-1]]*[#150/1000]]
+  G52 X[[#140+[#19-1]]*[#135/1000]]
   G90 G0 X0
 
   (Engrave the number)
