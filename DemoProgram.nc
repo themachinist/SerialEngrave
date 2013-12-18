@@ -1,7 +1,7 @@
 O1000
  #130 = -.1 (Depth from start position)
- #135 = 80  (Character Spacing [Percentage])
- #140 = 0   (Counter)
+ #135 = 80. (Character Spacing [Percentage])
+ #140 = 0.  (Counter)
  
  T1
  M6
@@ -23,6 +23,6 @@ O1000
  G65 P9100 A19
  G65 P9100 A5
  G65 P9100 C1
- G65 P9100 S3 U20
+ G65 P9100 S3
 
 M30
