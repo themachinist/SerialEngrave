@@ -1,35 +1,32 @@
 (Engraving.nc)
 O9100
  (Setup Work Coordinate)
- G52 X[#140*[#150/1000]]
+ G52 X[#140*[#135/1000]]
  G90 G0 X0. Y0.
 
  (number)
  IF[#7LT1]GOTO100 (skip this branch)
  M98 P[#7+9100]
- IF[#7GE1]GOTO500 (break)
+ IF[#7GE1]GOTO400 (break)
  N100
 
  (letter)
  IF[#1LT1]GOTO200
  M98 P[#1+9200] L1
- IF[#1GE1]GOTO500 
+ IF[#1GE1]GOTO400 
  N200
 
  (character)
  IF[#3LT1]GOTO300
  M98 P[#3+9300] L1
- IF[#3GE1]GOTO500 
+ IF[#3GE1]GOTO400 
  N300
 
  (series)
  IF[#19LT1]GOTO400
  M98 P9400 L1
- IF[[#7GE1]OR[#1GT1]OR[#3GT1]OR[#19GT1]OR[#21GT1]]GOTO500
 
  N400
- #3000 = 100 (No parameters entered);
- N500
  #140 = #140 + 1
 M99
 
@@ -46,13 +43,12 @@ O9400 (Series);
  (This loop uses arithmetic to find the digit we currently need to be engraving)
  WHILE[#19GT0]DO1
   (Extract digit)
-  (For some reason n mod 10 is rounded)
-  (so i moved everything up a digit, math'd it, and moved it back down)
   N2 #598 = FIX[[[#597*10] MOD 100]/10]
 
   (Move to next digit)
   #597 = #597 / 10
-
+  IF[#598GT[#597*10]]THEN#598=[#598-1]
+  IF[[#598EQ0]AND[#597GT0.01]]THEN#598=9
   (Move to start position:)
   G52 X[[#140+[#19-1]]*[#135/1000]]
   G90 G0 X0
@@ -67,8 +63,6 @@ O9400 (Series);
  (Add quantity of digits engraved to counter)
  #140 = #140 + #141 
 
- IF[#599LT#21]GOTO3
- #599=0 (start over)
  N3 #599=#599 + 1
 M99;
 
