@@ -12,16 +12,8 @@ O1000
 
  (engrave the following sequence. pound signs are a series that restarts after 20)
  (1AAA:1E4SE ### )
- G65 P9100 D1
- G65 P9100 A1
- G65 P9100 A1
- G65 P9100 A1
- G65 P9100 C3
- G65 P9100 D1
- G65 P9100 A5
- G65 P9100 D4
- G65 P9100 A19
- G65 P9100 A5
+ G65 P9100 D10
+ G65 P9100 D3
  G65 P9100 C1
  G65 P9100 S3
 
