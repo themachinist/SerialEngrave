@@ -31,7 +31,6 @@ O9100
  #140 = #140 + 1
 M99
 
-
 O9400 (Series);
  (If the counter has not been set reset it to zero)
  IF [#599NE0]GOTO1
@@ -47,6 +46,9 @@ O9400 (Series);
  (#19 is the S parameter we provided with the macro call)
  #141 = [#19-1]
  
+ (Move to first digit start position)
+ G91 G0 X[[#19]*.1]
+
  (This loop uses arithmetic to find the digit we currently need to be engraving)
  WHILE[#19GT0]DO1
   (Extract digit)
@@ -57,7 +59,7 @@ O9400 (Series);
   IF[[#598EQ0]AND[#597GT0.01]]THEN#598=9
 
   (Move to start position)
-  G91 G0 X[[#140+[#19-1]]*[#135/1000]]
+  G91 G0 X-.1
 
   (Engrave the number)
   IF[#598EQ0]THEN#598=10
@@ -106,6 +108,7 @@ O9202 (Letter B);
  X-0.0125 Y-0.0062
  X-0.0188
  G0 Z[ABS[#130]]
+ X-0.025 Y0.05
 M99
 
 O9203 (Letter C);
@@ -122,6 +125,7 @@ O9203 (Letter C);
  X0.0125 Y0.0063
  X0.0375
  G0 Z[ABS[#130]]
+ X-0.0875
 M99
 
 O9204 (Letter D);
@@ -140,6 +144,7 @@ O9204 (Letter D);
  X-0.0312
  Y-0.0500
  G0 Z[ABS[#130]]
+ X-0.0250 Y0.0500
 M99
 
 O9205 (Letter E);
@@ -154,6 +159,7 @@ O9205 (Letter E);
  G1 Z[-[ABS[#130]]]
  X-0.0375 
  G0 Z[ABS[#130]]
+ X-0.0250 Y0.0500
 M99
 
 O9206 (Letter F);
@@ -167,6 +173,7 @@ O9206 (Letter F);
  G1 Z[-[ABS[#130]]]
  X-0.0375 
  G0 Z[ABS[#130]]
+ X-0.025 Y0.05
 M99
 
 O9207 (Letter G);
@@ -212,7 +219,7 @@ O9209 (Letter I);
  G1 Z[-[ABS[#130]]]
  Y-0.1000 
  G0 Z[ABS[#130]]
- G0 X-0.05 Y0.1000
+ X-0.05 Y0.1000
 M99;
 
 O9210 (Letter J);
@@ -225,7 +232,7 @@ O9210 (Letter J);
  X0.0062 Y0.0125
  Y0.0750
  G0 Z[ABS[#130]]
- G0 X-0.075
+ X-0.075
 M99;
 
 O9211 (Letter K);
@@ -484,7 +491,7 @@ M99;
 
 O9110 (Number 0);
 (Move to start position)
- G91 G0 X0.0000 Y-0.0500
+ G91 G0 X0.0250 Y-0.0500
  G1 Z[-[ABS[#130]]] F20. 
  Y-0.0250 
  X0.0063 Y-0.0125
@@ -502,6 +509,7 @@ O9110 (Number 0);
  X-0.0063 Y-0.0125
  Y-0.0250
  G0 Z[ABS[#130]]
+ X-0.0250 Y0.0500
 M99;
 
 O9101 (Number 1);
@@ -511,6 +519,7 @@ O9101 (Number 1);
  Y0.1000 
  X-0.0250 Y-0.0250
  G0 Z[ABS[#130]]
+ X-0.0250 Y0.0250
 M99;
 
 O9102 (Number 2);
@@ -529,6 +538,7 @@ O9102 (Number 2);
  X-0.0063 Y-0.0062
  X-0.0062 Y-0.0125
  G0 Z[ABS[#130]]
+ X-0.0125 Y0.025
 M99;
 
 O9103 (Number 3);
@@ -686,6 +696,7 @@ O9109 (Number 9);
  X0.0437 Y0.0250 
  X0.0125 Y0.0250
  G0 Z[ABS[#130]]
+ X-0.0687 Y0.0500
 M99;
 
 O9301 (Space);
@@ -711,4 +722,5 @@ O9303 (Colon);
  G1 Z[-[ABS[#130]]]
  Y-0.0063 
  G0 Z[ABS[#130]]
+ X-0.025 Y0.025
 M99;
