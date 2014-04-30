@@ -31,6 +31,7 @@ O9100
  #140 = #140 + 1
 M99
 
+
 O9400 (Series);
  (If the counter has not been set reset it to zero)
  IF [#599NE0]GOTO1
@@ -71,8 +72,8 @@ M99;
 
 O9201 (Letter A);
 (Move to start position)
- G91 X0.0813 Y-0.1
- G1 Z[-[ABS[#130]]] F20. G90
+ G91 G0 X0.0813 Y-0.1
+ G1 Z[-[ABS[#130]]]
  X-0.0313 Y0.1 
  X-0.0312 Y-0.1
  G0 Z[ABS[#130]]
@@ -80,12 +81,12 @@ O9201 (Letter A);
  G1 Z[-[ABS[#130]]]
  X-0.0375 
  G0 Z[ABS[#130]]
+ X-0.0313 Y0.0625
 M99
-
 
 O9202 (Letter B);
 (Move to start position)
- G91 X0.0125 Y0.0125
+ G91 G0 X0.0438 Y-0.05
  G1 Z[-[ABS[#130]]]
  X0.0062 
  X0.0125 Y-0.0063
@@ -107,10 +108,9 @@ O9202 (Letter B);
  G0 Z[ABS[#130]]
 M99
 
-
 O9203 (Letter C);
 (Move to start position)
- G91 X0.0563 Y-0.0500
+ G91 G0 X0.0875 Y-0.100
  G1 Z[-[ABS[#130]]]
  X-0.0375 
  X-0.0125 Y0.0062
@@ -124,10 +124,9 @@ O9203 (Letter C);
  G0 Z[ABS[#130]]
 M99
 
-
 O9204 (Letter D);
 (Move to start position)
- G91 X-0.0625 Y-0.0500
+ G91 G0 X0.025 Y-0.0500
  G1 Z[-[ABS[#130]]]
  Y-0.0500 
  X0.0312
@@ -143,10 +142,9 @@ O9204 (Letter D);
  G0 Z[ABS[#130]]
 M99
 
-
 O9205 (Letter E);
 (Move to start position)
- G91 X0.0562 Y-0.0500
+ G91 G0 X0.075 Y-0.100
  G1 Z[-[ABS[#130]]]
  X-0.0500 
  Y0.1000
@@ -158,10 +156,9 @@ O9205 (Letter E);
  G0 Z[ABS[#130]]
 M99
 
-
 O9206 (Letter F);
 (Move to start position)
- G91 X0.0500 Y0.0500
+ G91 G0 X0.075 Y0.0000
  G1 Z[-[ABS[#130]]]
  X-0.0500 
  Y-0.1000
@@ -172,10 +169,9 @@ O9206 (Letter F);
  G0 Z[ABS[#130]]
 M99
 
-
 O9207 (Letter G);
 (Move to start position)
- G91 X0.0563 Y0.0500
+ G91 G0 X0.075 Y0.0000
  G1 Z[-[ABS[#130]]]
  X-0.0375 
  X-0.0125 Y-0.0063
@@ -189,12 +185,12 @@ O9207 (Letter G);
  Y0.0500
  X-0.0250
  G0 Z[ABS[#130]]
+ X-0.0500 Y0.0500
 M99;
-
 
 O9208 (Letter H);
 (Move to start position)
- G91 X-0.0375 Y-0.0500
+ G91 G0 X0.0250 Y-0.100
  G1 Z[-[ABS[#130]]]
  Y0.1000 
  G0 Z[ABS[#130]]
@@ -207,21 +203,21 @@ O9208 (Letter H);
  G1 Z[-[ABS[#130]]]
  Y0.0500 
  G0 Z[ABS[#130]]
+ X-0.0875 Y0.05
 M99;
-
 
 O9209 (Letter I);
 (Move to start position)
- G91 X-0.0313 Y0.0500
+ G91 G0 X0.0500 Y0.0000
  G1 Z[-[ABS[#130]]]
  Y-0.1000 
  G0 Z[ABS[#130]]
+ G0 X-0.05 Y0.1000
 M99;
-
 
 O9210 (Letter J);
 (Move to start position)
- G91 X-0.0250 Y0.0000 
+ G91 G0 X.025 Y-0.1000 
  G1 Z[-[ABS[#130]]]
  X0.0250 
  X0.0125 Y0.0062
@@ -229,12 +225,12 @@ O9210 (Letter J);
  X0.0062 Y0.0125
  Y0.0750
  G0 Z[ABS[#130]]
+ G0 X-0.075
 M99;
-
 
 O9211 (Letter K);
 (Move to start position)
- G91 X-0.0562 Y0.0000
+ G91 G0 X0.0250 Y0.0000
  G1 Z[-[ABS[#130]]]
  Y-0.1000 
  G0 Z[ABS[#130]]
@@ -246,44 +242,44 @@ O9211 (Letter K);
  G1 Z[-[ABS[#130]]]
  X-0.0438 Y0.0562 
  G0 Z[ABS[#130]]
+ X-0.0437 Y0.0438
 M99;
-
 
 O9212 (Letter L);
- X-0.0125 Y0.0000
+ G91 G0 X0.025 Y0.0000
  G1 Z[-[ABS[#130]]]
- Y-0.0562 
+ Y-0.1 
  X0.0500
  G0 Z[ABS[#130]]
+ X-0.0750 Y0.1000
 M99;
-
 
 O9213 (Letter M);
 (Move to start position)
- G91 X-0.0625 Y0.0000
+ G91 G0 X0.0125 Y-0.1000
  G1 Z[-[ABS[#130]]]
  Y0.1000 
  X0.0375 Y-0.0500
  X0.0375 Y0.0500
  Y-0.1000
  G0 Z[ABS[#130]]
+ X-0.0875 Y0.1000
 M99;
-
 
 O9214 (Letter N);
 (Move to start position)
- G91 X-0.0062 Y0.1000
+ G91 G0 X0.075 Y0.0000
  G1 Z[-[ABS[#130]]]
  Y-0.1000 
  X-0.0625 Y0.1000
  Y-0.1000
  G0 Z[ABS[#130]]
+ G0 X-0.0125 Y0.1000
 M99;
-
 
 O9215 (Letter O);
 (Move to start position)
- G91 X0.0625 Y0.0500
+ G91 G0 X0.075 Y-0.0500
  G1 Z[-[ABS[#130]]]
  Y0.0250 
  X-0.0063 Y0.0125
@@ -303,12 +299,12 @@ O9215 (Letter O);
  X0.0063 Y0.0125
  Y0.0250
  G0 Z[ABS[#130]]
+ X-0.075 Y0.05
 M99;
-
 
 O9216 (Letter P);
 (Move to start position)
- G91 X-0.0563 Y0.0000
+ G91 G0 X0.0250 Y-0.0500
  G1 Z[-[ABS[#130]]]
  X0.0250 
  X0.0125 Y0.0062
@@ -320,12 +316,12 @@ O9216 (Letter P);
  X-0.0250
  Y-0.1000
  G0 Z[ABS[#130]]
+ X-0.0250 Y0.1000
 M99;
-
 
 O9217 (Letter Q);
 (Move to start position)
- G91 X0.0563 Y0.0500
+ G91 G0 X0.075 Y-0.0500
  G1 Z[-[ABS[#130]]]
  Y0.0250 
  X-0.0063 Y0.0125
@@ -349,12 +345,12 @@ O9217 (Letter Q);
  G1 Z[-[ABS[#130]]]
  X-0.0188 Y0.0187 
  G0 Z[ABS[#130]]
+ X-0.0562 Y0.0813
 M99;
-
 
 O9218 (Letter R);
 (Move to start position)
- G91 X-0.0375 Y0.0313
+ G91 G0 X0.0125 Y-0.0500
  G1 Z[-[ABS[#130]]]
  X0.0250 
  X0.0125 Y0.0062
@@ -370,12 +366,12 @@ O9218 (Letter R);
  G1 Z[-[ABS[#130]]]
  X-0.0250 Y0.0500 
  G0 Z[ABS[#130]]
+ X-0.0375 Y0.05
 M99;
-
 
 O9219 (Letter S);
 (Move to start position)
- G91 X-0.0250 Y-0.0375
+ G91 G0 X0.0187 Y-.0875
  G1 Z[-[ABS[#130]]]
  X0.0063 Y-0.0063 
  X0.0125 Y-0.0062
@@ -395,25 +391,24 @@ O9219 (Letter S);
  X0.0125 Y-0.0063
  X0.0062 Y-0.0062
  G0 Z[ABS[#130]]
+ X-0.0687 Y0.0125
 M99;
-
 
 O9220 (Letter T);
- G91 X0.0000 Y-0.0875
+ G91 G0 X0.0500 Y-0.1000
  G1 Z[-[ABS[#130]]]
  Y0.1000 
- X-0.0562
  G0 Z[ABS[#130]]
- X0.0625
+ X0.025
  G1 Z[-[ABS[#130]]]
- X-0.0313 
+ X-0.0625 
  G0 Z[ABS[#130]]
+ X-0.0125
 M99;
-
 
 O9221 (Letter U);
 (Move to start position)
- G91 X0.0313 Y0.0000
+ G91 X0.08125 Y0.0000
  G1 Z[-[ABS[#130]]]
  Y-0.0750 
  X-0.0063 Y-0.0125
@@ -425,22 +420,22 @@ O9221 (Letter U);
  X-0.0062 Y0.0125
  Y0.0750
  G0 Z[ABS[#130]]
+ X-0.0188
 M99;
-
 
 O9222 (Letter V);
 (Move to start position)
- G91 X0.0000 Y0.0000
+ G91 G0 X0.0125 Y0.0000
  G1 Z[-[ABS[#130]]]
  X0.0312 Y-0.1000 
  X0.0313 Y0.1000
  G0 Z[ABS[#130]]
+ X-0.075
 M99;
-
 
 O9223 (Letter W);
 (Move to start position)
- G91 X-0.0688 Y0.0000
+ G91 G0 X0.0125 Y0.0000
  G1 Z[-[ABS[#130]]]
  X0.0188 Y-0.1000 
  X0.0187 Y0.1000
@@ -449,10 +444,9 @@ O9223 (Letter W);
  G0 Z[ABS[#130]]
 M99;
 
-
 O9224 (Letter X);
 (Move to start position)
- G91 X-0.0062 Y-0.1000
+ G91 G0 X0.0625 Y-0.1000
  G1 Z[-[ABS[#130]]]
  X-0.0625 Y0.1000 
  G0 Z[ABS[#130]]
@@ -460,12 +454,12 @@ O9224 (Letter X);
  G1 Z[-[ABS[#130]]]
  X0.0625 Y0.1000 
  G0 Z[ABS[#130]]
+ X-0.0625
 M99;
-
 
 O9225 (Letter Y);
 (Move to start position)
- G91 X-0.0625 Y0.0000
+ G91 G0 X0.0000 Y0.0000
  G1 Z[-[ABS[#130]]]
  X0.0312 Y-0.0500 
  X0.0313 Y0.0500
@@ -474,12 +468,13 @@ O9225 (Letter Y);
  G1 Z[-[ABS[#130]]]
  Y0.0500 
  G0 Z[ABS[#130]]
+ G0 X-0.0312 Y0.0500
 M99;
 
 
 O9226 (Letter Z);
 (Move to start position)
- G91 X0.0250 Y-0.0500
+ G91 G0 X0.050 Y-0.100
  G1 Z[-[ABS[#130]]]
  X-0.0500 
  X0.0500 Y0.1000
@@ -489,7 +484,7 @@ M99;
 
 O9110 (Number 0);
 (Move to start position)
- G91 X0.0000 Y-0.0500
+ G91 G0 X0.0000 Y-0.0500
  G1 Z[-[ABS[#130]]] F20. 
  Y-0.0250 
  X0.0063 Y-0.0125
@@ -509,20 +504,18 @@ O9110 (Number 0);
  G0 Z[ABS[#130]]
 M99;
 
-
 O9101 (Number 1);
 (Move to start position)
- G91 X0.0375 Y-0.0500
+ G91 G0 X0.0500 Y-0.1000
  G1 Z[-[ABS[#130]]]
  Y0.1000 
  X-0.0250 Y-0.0250
  G0 Z[ABS[#130]]
 M99;
 
-
 O9102 (Number 2);
 (Move to start position)
- G91 X0.0438 Y-0.0750
+ G91 G0 X0.075 Y-0.1000
  G1 Z[-[ABS[#130]]]
  X-0.0625 
  X0.0562 Y0.0562
@@ -538,10 +531,9 @@ O9102 (Number 2);
  G0 Z[ABS[#130]]
 M99;
 
-
 O9103 (Number 3);
 (Move to start position)
- G91 X0.0250 Y-0.0188
+ G91 G0 X0.0375 Y-0.0438
  G1 Z[-[ABS[#130]]] F20. 
  X0.0312 
  X0.0063 Y0.0125
@@ -558,12 +550,12 @@ O9103 (Number 3);
  Y0.0187
  X-0.0063 Y0.0125
  G0 Z[ABS[#130]]
+ X-0.0687 Y0.0438
 M99;
-
 
 O9104 (Number 4);
 (Move to start position)
- G91 X-0.0125 Y0.0438
+ G91 G0 X0.0500 Y0.0000
  G1 Z[-[ABS[#130]]] F20. 
  X-0.0437 Y-0.0750 
  X0.0625
@@ -572,12 +564,12 @@ O9104 (Number 4);
  G1 Z[-[ABS[#130]]]
  Y0.0437 
  G0 Z[ABS[#130]]
+ X-0.05 Y0.0563
 M99;
-
 
 O9105 (Number 5);
 (Move to start position)
- G91 X-0.0437 Y-0.0437
+ G91 G0 X0.01875 Y-0.1000
  G1 Z[-[ABS[#130]]]
  X0.0500 
  X0.0062 Y0.0062
@@ -589,12 +581,12 @@ O9105 (Number 5);
  Y0.0375
  X0.0625
  G0 Z[ABS[#130]]
+ X-0.0813
 M99;
-
 
 O9106 (Number 6);
 (Move to start position)
- G91 X-0.0032 Y-0.0625
+ G91 G0 X0.075 Y-0.0625
  G1 Z[-[ABS[#130]]]
  X-0.0031 Y0.0062 
  X-0.0062 Y0.0063
@@ -620,23 +612,23 @@ O9106 (Number 6);
  X-0.0125 Y-0.0188
  Y-0.0125
  G0 Z[ABS[#130]]
+ X-0.0157 Y0.0688
 M99;
-
 
 O9107 (Number 7);
 (Move to start position)
- G91 X0.0062 Y0.0563
+ G91 G0 X0.0125 Y-0.0125
  G1 Z[-[ABS[#130]]]
  Y0.0125 
  X0.0500
  X-0.0375 Y-0.1000
  G0 Z[ABS[#130]]
+ X-0.025 Y0.1
 M99;
-
 
 O9108 (Number 8);
 (Move to start position)
- G91 X0.0406 Y0.0375
+ G91 G0 X0.0718 Y-0.0625
  G1 Z[-[ABS[#130]]] F20. 
  X-0.0031 Y0.0062 
  X-0.0062 Y0.0063
@@ -670,12 +662,12 @@ O9108 (Number 8);
  X0.0063 Y-0.0125
  X0.0125 Y-0.0063
  G0 Z[ABS[#130]]
+ X-0.0375 Y0.0438
 M99;
-
 
 O9109 (Number 9);
 (Move to start position)
- G91 X0.0062 Y-0.0062
+ G91 G0 X0.0437 Y-0.0500
  G1 Z[-[ABS[#130]]] F20. 
  X0.0250 
  X0.0063 Y0.0187
@@ -697,20 +689,21 @@ O9109 (Number 9);
 M99;
 
 O9301 (Space);
-
+ 
 M99;
 
 O9302 (Dash);
 (Move to start position)
- G91 X0.0000 Y-0.0063
+ G91 G0 X0.0750 Y-0.05
  G1 Z[-[ABS[#130]]] F20. 
  X-0.0500 
  G0 Z[ABS[#130]]
+ X-0.0250 Y0.0500
 M99;
 
 O9303 (Colon);
 (Move to start position)
- G91 X0.0250 Y-0.0250
+ G91 G0 X0.0250 Y-0.0375
  G1 Z[-[ABS[#130]]] F20. 
  Y-0.0062 
  G0 Z[ABS[#130]]
