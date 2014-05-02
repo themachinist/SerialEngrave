@@ -1,7 +1,3 @@
-(each number needs to return to the start position [X0.Y0.] after)
-(machining to facilitate incrementing the letter position using)
-(incremental moves)
-
 (Engraving.nc)
 O9100
  (number)
@@ -27,7 +23,7 @@ O9100
  M98 P9400 L1
  
  N400
- G91 X.1
+ G91 G0 X.1
  #140 = #140 + 1
 M99
 
@@ -49,28 +45,20 @@ O9400 (Series);
  (Move to first digit start position)
  G91 G0 X[[#19]*.1]
 
- (This loop uses arithmetic to find the digit we currently need to be engraving)
  WHILE[#19GT0]DO1
-  (Extract digit)
-  N2 #598 = FIX[[[#597*10] MOD 100]/10]
-  (Move to next digit)
-  #597 = #597 / 10
-  IF[#598GT[#597*10]]THEN#598=[#598-1]
-  IF[[#598EQ0]AND[#597GT0.01]]THEN#598=9
-
+  (separate digit)
+  N2 #598 = FIX[[#597] MOD 10]
+  (next)
+  #597 = FIX[#597 / 10]
   (Move to start position)
   G91 G0 X-.1
-
   (Engrave the number)
   IF[#598EQ0]THEN#598=10
   M98 P[ABS[#598]+9100]
   (decrement number of letters to engrave)
   #19= #19 - 1
  END1
- (Add quantity of digits engraved to counter)
- #140 = #140 + #141 
- N3 #599=#599 + 1
-M99;
+M99
 
 O9201 (Letter A);
 (Move to start position)
