@@ -15,7 +15,7 @@ Program uses variables in the #500-#600 range.
 
 ##Setup
 
-Before you call the subprogram you need to setup the Work Coordinate System (WCS), position the engraving by transforming (G10) the WCS, orient the work plane by rotating (G68) the WCS, and setting the text size by scaling (G51) the toolpath. You will also need to set three variables which define the clearance position in between characters, the spacing in between characters, and a counter the program uses to keep track of which character it is engraving. The counter should be reset with each new phrase.
+Before you call the subprogram you need to setup the Work Coordinate System (WCS), position the engraving by transforming (G10) the WCS, orient the work plane by rotating (G68) the WCS, and setting the text size by scaling (G51) the toolpath. You will also need to set two variables which define the clearance position in between characters and a counter the program uses to keep track of which character it is engraving. The counter should be reset with each new phrase.
 
 This is an early revision and the code has not been rigorously tested. A list of controls confirmed to be compatible will be updated as the code is tested. Please, review the license prior to using this code for your own projects.
 
