@@ -8,6 +8,11 @@ Introducing the last engraving macro you will ever need. Written to be compatibl
 * Engrave a self-incrementing series of numbers with a single-line of code
 * Fanuc compatible
 
+##Requirements
+
+Your control must support the FIX (floor a fraction) and ABS functions.
+Program uses variables in the #500-#600 range.
+
 ##Setup
 
 Before you call the subprogram you need to setup the Work Coordinate System (WCS), position the engraving by transforming (G10) the WCS, orient the work plane by rotating (G68) the WCS, and setting the text size by scaling (G51) the toolpath. You will also need to set three variables which define the clearance position in between characters, the spacing in between characters, and a counter the program uses to keep track of which character it is engraving. The counter should be reset with each new phrase.
