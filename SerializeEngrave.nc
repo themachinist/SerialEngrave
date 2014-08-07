@@ -24,7 +24,6 @@ O9100
  
  N400
  G91 G0 X.1
- #599 = #599 + 1
 M99
 
 O9400 (Series);
@@ -58,6 +57,7 @@ O9400 (Series);
   (decrement number of letters to engrave)
   #19= #19 - 1
  END1
+ #599 = #599 + 1
 M99
 
 O9201 (Letter A);
@@ -567,7 +567,7 @@ M99;
 
 O9105 (Number 5);
 (Move to start position)
- G91 G0 X0.01875 Y-0.1000
+ G91 G0 X0.0187 Y-0.1000
  G1 Z[-[ABS[#130]]]
  X0.0500 
  X0.0062 Y0.0062
