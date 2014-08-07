@@ -3,9 +3,8 @@ O1000
  #135 = 80. (Character Spacing [Percentage])
  #140 = 0.  (Counter)
  
- T1
- M6
-
+T1
+M6
 
 G68 A0. B0. R0.
 G17 G90 G0 X0. Y0. S5000 M3
