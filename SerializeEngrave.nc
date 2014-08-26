@@ -1,31 +1,4 @@
 (Engraving.nc)
-<<<<<<< HEAD
-O9100
- (number)
- IF[#7LT1]GOTO100 (skip this branch)
- M98 P[#7+9100]
- IF[#7GE1]GOTO400 (break)
- 
- N100
- (letter)
- IF[#1LT1]GOTO200
- M98 P[#1+9200] L1
- IF[#1GE1]GOTO400 
- 
- N200
- (character)
- IF[#3LT1]GOTO300
- M98 P[#3+9300] L1
- IF[#3GE1]GOTO400 
- 
- N300
- (series)
- IF[#19LT1]GOTO400
- M98 P9400 L1
- 
- N400
- G91 G0 X.1
-=======
 :9100
 (number)
 IF[#7LT1]GOTO100 (skip this branch)
@@ -50,9 +23,7 @@ IF[#19LT1]GOTO400
 M98 P9400 L1
 
 N400
-G91 G0 X.1
-#529 = #529 + 1
->>>>>>> pulley
+G91 G0 X[ABS[#132]]
 M99
 
 :O9400 (SERIES)
@@ -82,17 +53,6 @@ WHILE[#19GT0]DO1
   #527=FIX[#527/10]
 
   (Move to start position)
-<<<<<<< HEAD
-  G91 G0 X-.1
-  (Engrave the number)
-  IF[#598EQ0]THEN#598=10
-  M98 P[ABS[#598]+9100]
-  (decrement number of letters to engrave)
-  #19= #19 - 1
- END1
- #599 = #599 + 1
-M99
-=======
   G91 G0 X[-[ABS[#132]]] 
 
   (If the digit is a zero run program 9110)
@@ -107,7 +67,6 @@ END1
 
  (Increment Counter)
 #529=#529+1
->>>>>>> pulley
 
 M99
 
