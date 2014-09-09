@@ -38,7 +38,7 @@ N1
 (modifying the original value) 
 #527=#529
  
-(Clculate the number of zeros we need to engrave ahead of the serial number)
+(Calculate the number of zeros we need to engrave ahead of the serial number)
 (#19 is the S parameter we provided with the macro call) 
 #141=[#19-1] 
  
