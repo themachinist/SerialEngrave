@@ -1,7 +1,7 @@
 import sys
 import math
 
-# i didnt use a test framework, because i dont know how!
+# made a little test in python prior to writing the g code. i wish there was an open source app for plotting g code.
 
 try:
     num = 1
