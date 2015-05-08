@@ -1,0 +1,50 @@
+;%_N_ENGRAVE_SERIES_SPF
+;$PATH=/_N_SPF_DIR/_N_ENGRAVE_SERIES_SPF
+
+; ENGRAVE_SERIES
+; engraves a number in series 
+; (e.g. engraves each digit of a number such as 4351 in order, left-to-right)
+;
+; takes two parameters:
+; INT    _total_digits    total digits in serial (in case user prefers preceeding zeros)
+; REAL   _r_plane_        height of retract plane from cut plane
+; REAL   _char_width      width of each character
+
+; define parameters
+PROC   ENGRAVE_SERIES  (INT _total_digits, REAL _r_plane, REAL _char_width)
+
+;PARMS ENGRAVE_DIGIT   (INT _digit, REAL _r_plane)
+EXTERN ENGRAVE_DIGIT   (INT, REAL)
+
+; variables
+DEF INT _counter
+DEF STRING[32] _counter_as_string
+DEF INT _counter_str_len
+DEF INT _index
+DEF INT _current_digit
+
+; convert INT to STRING using concatentation operator
+_counter = $AC_TOTAL_PARTS        ; this doesn't appear to be working correctly - should double check the manual
+_counter_as_string = <<_counter   ; so this doesn't appear to be working correctly
+_counter_str_len = STRLEN(_counter_as_string)
+
+; engrave number and preceding digits
+
+FOR _index = 0 to _total_digits
+
+  ; if our counter has less digits than the parameter _total_digits then engrave a zero
+  IF _index < (_total_digits - _counter_str_len)
+    _current_digit = 0
+  ELSE
+    _current_digit = INT(_counter_as_string[_index])
+  ENDIF
+
+  ; move to start position
+  G91 G0 X=_char_width
+
+  ; call subprogram to engrave digit
+  ENGRAVE_DIGIT(_current_digit, _r_plane) ; alarm being thrown here. whatever input is here causes ENGRAVE_DIGIT to fail
+
+ENDFOR
+
+RET

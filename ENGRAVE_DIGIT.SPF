@@ -1,0 +1,246 @@
+;%_N_ENGRAVE_DIGIT_SPF
+;$PATH=/_N_SPF_DIR/_N_ENGRAVE_DIGIT_SPF
+
+; ENGRAVE_DIGIT
+; engraves a digit, passed as a parameter
+;
+; takes one parameters:
+; INT    _current_digit    digit to engrave
+; REAL   _r_plane  height of retract plane from cut plane
+
+; define parameters
+PROC ENGRAVE_DIGIT   (INT _current_digit, REAL _r_plane)
+
+IF _r_plane < 0
+  DEF STRING[16] _MSG
+  _MSG="_r_plane should be greater than zero. it describes the height of the retract plane above the cut plane. "
+  SETAL(10208," "<<_MSG)
+ENDIF
+
+CASE(_current_digit) OF 
+0 GOTOF Label_0 
+1 GOTOF Label_1 
+2 GOTOF Label_2 
+3 GOTOF Label_3 
+4 GOTOF Label_4 
+5 GOTOF Label_5 
+6 GOTOF Label_6 
+7 GOTOF Label_7 
+8 GOTOF Label_8 
+9 GOTOF Label_9
+DEFAULT GOTOF Label_10 
+
+RET
+
+Label_0:
+; Number 0
+; Move to start position
+G91 G0 X0.0250 Y-0.0500
+G1 Z=_r_plane*-1
+Y-0.0250 
+X0.0063 Y-0.0125
+X0.0062 Y-0.0063
+X0.0125 Y-0.0062
+X0.0125 Y0.0062
+X0.0063 Y0.0063
+X0.0062 Y0.0125
+Y0.0500
+X-0.0062 Y0.0125
+X-0.0063 Y0.0062
+X-0.0125 Y0.0063
+X-0.0125 Y-0.0063
+X-0.0062 Y-0.0062
+X-0.0063 Y-0.0125
+Y-0.0250
+G0 Z=_r_plane
+X-0.0250 Y0.0500
+
+
+Label_1:
+; Number 1
+G91 G0 X0.0500 Y-0.1000
+G1 Z=_r_plane*-1
+Y0.1000 
+X-0.0250 Y-0.0250
+G0 Z=_r_plane
+X-0.0250 Y0.0250
+
+
+Label_2:
+; Number 2
+G91 G0 X0.075 Y-0.1000
+G1 Z=_r_plane*-1
+X-0.0625 
+X0.0562 Y0.0562
+X0.0063 Y0.0125
+Y0.0063
+X-0.0063 Y0.0125
+X-0.0062 Y0.0062
+X-0.0125 Y0.0063
+X-0.0125
+X-0.0125 Y-0.0063
+X-0.0063 Y-0.0062
+X-0.0062 Y-0.0125
+G0 Z=_r_plane
+X-0.0125 Y0.025
+
+
+Label_3:
+; Number 3
+G91 G0 X0.0375 Y-0.0438
+G1 Z=_r_plane*-1
+X0.0312 
+X0.0063 Y0.0125
+Y0.0063
+X-0.0063 Y0.0187
+X-0.0062 Y0.0063
+X-0.0500
+G0 Z=_r_plane
+Y-0.1000
+G1 Z=_r_plane*-1
+X0.0500 
+X0.0062 Y0.0062
+X0.0063 Y0.0188
+Y0.0187
+X-0.0063 Y0.0125
+G0 Z=_r_plane
+X-0.0687 Y0.0438
+
+
+Label_4:
+; Number 4
+G91 G0 X0.0500 Y0.0000
+G1 Z=_r_plane*-1
+X-0.0437 Y-0.0750 
+X0.0625
+G0 Z=_r_plane
+X-0.0188 Y-0.0250
+G1 Z=_r_plane*-1
+Y0.0437 
+G0 Z=_r_plane
+X-0.05 Y0.0563
+
+
+Label_5:
+; Number 5
+G91 G0 X0.01875 Y-0.1000
+G1 Z=_r_plane*-1
+X0.0500 
+X0.0062 Y0.0062
+X0.0063 Y0.0188
+Y0.0125
+X-0.0063 Y0.0187
+X-0.0062 Y0.0063
+X-0.0500
+Y0.0375
+X0.0625
+G0 Z=_r_plane
+X-0.0813
+
+
+Label_6:
+; Number 6
+G91 G0 X0.075 Y-0.0625
+G1 Z=_r_plane*-1
+X-0.0031 Y0.0062 
+X-0.0062 Y0.0063
+X-0.0125 Y0.0062
+X-0.0125
+X-0.0125 Y-0.0062
+X-0.0063 Y-0.0063
+X-0.0062 Y-0.0125
+Y-0.0062
+X0.0062 Y-0.0125
+X0.0063 Y-0.0063
+X0.0125 Y-0.0062
+X0.0125
+X0.0125 Y0.0062
+X0.0062 Y0.0063
+X0.0063 Y0.0125
+Y0.0062
+X-0.0032 Y0.0063
+G0 Z=_r_plane
+X-0.0031 Y0.0625
+G1 Z=_r_plane*-1
+X-0.0437 Y-0.0375 
+X-0.0125 Y-0.0188
+Y-0.0125
+G0 Z=_r_plane
+X-0.0157 Y0.0688
+
+
+Label_7:
+; Number 7
+G91 G0 X0.0125 Y-0.0125
+G1 Z=_r_plane*-1
+Y0.0125 
+X0.0500
+X-0.0375 Y-0.1000
+G0 Z=_r_plane
+X-0.025 Y0.1
+
+
+Label_8:
+; Number 8
+G91 G0 X0.0718 Y-0.0625
+G1 Z=_r_plane*-1
+X-0.0031 Y0.0062 
+X-0.0062 Y0.0063
+X-0.0125 Y0.0062
+X-0.0125
+X-0.0125 Y-0.0062
+X-0.0063 Y-0.0063
+X-0.0062 Y-0.0125
+Y-0.0062
+X0.0062 Y-0.0125
+X0.0063 Y-0.0063
+X0.0125 Y-0.0062
+X0.0125
+X0.0125 Y0.0062
+X0.0062 Y0.0063
+X0.0063 Y0.0125
+Y0.0062
+X-0.0032 Y0.0063
+G0 Z=_r_plane
+X-0.0218 Y0.0187
+G1 Z=_r_plane*-1
+X0.0125 Y0.0063 
+X0.0062 Y0.0125
+Y0.0062
+X-0.0062 Y0.0125
+X-0.0125 Y0.0063
+X-0.0125
+X-0.0125 Y-0.0063
+X-0.0063 Y-0.0125
+Y-0.0062
+X0.0063 Y-0.0125
+X0.0125 Y-0.0063
+G0 Z=_r_plane
+X-0.0375 Y0.0438
+
+
+Label_9:
+; Number 9
+G91 G0 X0.0437 Y-0.0500
+G1 Z=_r_plane*-1
+X0.0250 
+X0.0063 Y0.0187
+Y0.0063
+X-0.0063 Y0.0187
+X-0.0125 Y0.0063
+X-0.0250
+X-0.0125 Y-0.0063
+X-0.0062 Y-0.0187
+Y-0.0063
+X0.0062 Y-0.0187
+X0.0250
+G0 Z=_r_plane
+X-0.0312 Y-0.0500
+G1 Z=_r_plane*-1
+X0.0437 Y0.0250 
+X0.0125 Y0.0250
+G0 Z=_r_plane
+X-0.0687 Y0.0500
+
+Label_10: 
+RET

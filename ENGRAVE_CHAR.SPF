@@ -1,0 +1,29 @@
+
+
+
+O9301 (Space)
+
+M99
+
+O9302 (Dash)
+(Move to start position) 
+G91 G0 X0.0625 Y-0.05  
+G1 Z[-[ABS[#130]]]F20. 
+X-0.05  
+G0 Z[ABS[#130]] 
+X-0.025 Y0.0500  
+M99 
+
+O9303 (Colon)
+(Move to start position)
+G91 G0 X0.0250 Y-0.0375
+G1 Z[-[ABS[#130]]] F20. 
+Y-0.0062 
+G0 Z[ABS[#130]]
+Y0.0250
+G1 Z[-[ABS[#130]]]
+Y-0.0063 
+G0 Z[ABS[#130]]
+X-0.025 Y0.025
+M99
+

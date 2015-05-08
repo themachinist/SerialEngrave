@@ -1,0 +1,32 @@
+;%_N_ENGRAVE_DEMO_SPF
+;$PATH=/_N_SPF_DIR/_N_ENGRAVE_DEMO_MPF
+
+;PARMS ENGRAVE_SERIES   (INT _total_digits, REAL _r_plane, REAL _char_width)
+EXTERN ENGRAVE_SERIES   (INT, REAL, REAL)
+
+DEF INT _r_plane, _char_width
+
+_r_plane = .25
+_char_width   = .085
+
+; (-----------------)
+; (engraving)
+T="15" ; (1/4 90 DEG CHAMFER TOOL 1.25 OAL)
+M6
+G94 S8000 M3 D1 
+; (--- PART ENGRAVE ---)
+; (AK  ENGRAVE )
+; (B90. C90.)
+CYCLE800(1,"DMG",200000,27,0,0,0,180,0,90,0,0,0,1,,0)
+G0 X.5077 Y-1.3971 D1 M8
+G0 Z=4.161
+/M08  
+F30.  
+
+ENGRAVE_SERIES(3, _r_plane, _char_width)
+
+G0 Z2.
+M9
+CYCLE800()
+G0 SUPA Z-.2492 D0
+M30
